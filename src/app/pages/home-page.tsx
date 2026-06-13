@@ -4,6 +4,7 @@ import { AboutSection } from "../components/about-section";
 import { FeaturesSection } from "../components/features-section";
 import { FAQSection } from "../components/faq-section";
 import { TokenomicsSection } from "../components/tokenomics-section";
+import { ProfitCalculator } from "../components/profit-calculator";
 import { CTASection } from "../components/cta-section";
 import { Footer } from "../components/footer";
 import { Helmet } from "react-helmet-async";
@@ -37,6 +38,7 @@ export function HomePage() {
         <HeroSection />
         <AboutSection />
         <FeaturesSection />
+        <ProfitCalculator />
         <FAQSection />
         <TokenomicsSection />
         <CTASection />
