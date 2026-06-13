@@ -64,7 +64,7 @@ export function Navbar() {
               Whitepaper
             </Link>
             <Link to="/pairs" className="text-[#5a5d4a] hover:text-[#2a2d1f] transition-colors">
-              Pairs
+              Markets
             </Link>
             <Link to="/contact" className="text-[#5a5d4a] hover:text-[#2a2d1f] transition-colors">
               Contact Us
@@ -123,7 +123,7 @@ export function Navbar() {
               className="block text-[#5a5d4a] hover:text-[#2a2d1f] transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Pairs
+              Markets
             </Link>
             <Link
               to="/contact"

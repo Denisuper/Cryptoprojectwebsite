@@ -2,6 +2,8 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { PropDAOTerminal } from "./propdao-terminal";
+import { TickerTape } from "./ticker-tape";
 
 export function HeroSection() {
   return (
@@ -71,9 +73,11 @@ export function HeroSection() {
           </Link>
         </motion.div>
 
+        <PropDAOTerminal />
+
         {/* Stats */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-24"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
@@ -93,6 +97,9 @@ export function HeroSection() {
             <div className="text-[#5a5d4a]">Fully Decentralized</div>
           </div>
         </motion.div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full">
+        <TickerTape />
       </div>
     </section>
   );
