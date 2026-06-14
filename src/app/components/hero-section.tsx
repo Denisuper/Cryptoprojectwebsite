@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { PropDAOTerminal } from "./propdao-terminal";
 import { TickerTape } from "./ticker-tape";
 
 export function HeroSection() {
@@ -72,8 +71,6 @@ export function HeroSection() {
             </Button>
           </Link>
         </motion.div>
-
-        <PropDAOTerminal />
 
         {/* Stats */}
         <motion.div 
