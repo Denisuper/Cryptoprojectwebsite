@@ -32,8 +32,8 @@ export function InteractivePieChart({ data }: PieChartProps) {
   });
   
   const createArcPath = (startAngle: number, endAngle: number, isHovered: boolean) => {
-    const radius = isHovered ? 100 : 95;
-    const innerRadius = 60;
+    const radius = isHovered ? 105 : 95;
+    const innerRadius = isHovered ? 65 : 60;
     const startRad = (startAngle - 90) * (Math.PI / 180);
     const endRad = (endAngle - 90) * (Math.PI / 180);
     
@@ -76,7 +76,6 @@ export function InteractivePieChart({ data }: PieChartProps) {
                   onMouseLeave={() => setHoveredIndex(null)}
                   style={{ cursor: 'pointer' }}
                   animate={{
-                    scale: isHovered ? 1.08 : 1,
                     filter: isHovered ? "drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15))" : "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05))",
                   }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
@@ -86,12 +85,12 @@ export function InteractivePieChart({ data }: PieChartProps) {
                 {segment.percentage >= 10 && (
                   <motion.text
                     x={(() => {
-                      const labelRadius = 75;
+                      const labelRadius = isHovered ? 80 : 75;
                       const labelAngle = (segment.middleAngle - 90) * (Math.PI / 180);
                       return 100 + labelRadius * Math.cos(labelAngle);
                     })()}
                     y={(() => {
-                      const labelRadius = 75;
+                      const labelRadius = isHovered ? 80 : 75;
                       const labelAngle = (segment.middleAngle - 90) * (Math.PI / 180);
                       return 100 + labelRadius * Math.sin(labelAngle);
                     })()}
