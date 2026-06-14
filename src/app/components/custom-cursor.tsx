@@ -14,23 +14,13 @@ export function CustomCursor() {
   }, []);
 
   return (
-    <>
-      <motion.div
-        className="fixed top-0 left-0 w-6 h-6 border-2 border-[#8fa670] rounded-full pointer-events-none z-[9999] hidden md:block"
-        animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
-        }}
-        transition={{ type: "spring", damping: 20, stiffness: 150, mass: 0.5 }}
-      />
-      <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-[#8fa670] rounded-full pointer-events-none z-[9999] hidden md:block"
-        animate={{
-          x: mousePosition.x - 3,
-          y: mousePosition.y - 3,
-        }}
-        transition={{ type: "spring", damping: 10, stiffness: 200, mass: 0.2 }}
-      />
-    </>
+    <motion.div
+      className="fixed top-0 left-0 w-6 h-6 border-2 border-[#8fa670] rounded-full pointer-events-none z-[9999] hidden md:block"
+      animate={{
+        x: mousePosition.x - 12,
+        y: mousePosition.y - 12,
+      }}
+      transition={{ type: "spring", damping: 20, stiffness: 150, mass: 0.5 }}
+    />
   );
 }
