@@ -65,13 +65,17 @@ export function ProfitCalculator() {
               </div>
 
               <div>
-                <label className="block text-[#2a2d1f] font-bold mb-4">Number of Accounts</label>
-                <input
-                  type="number"
-                  min="1"
-                  value={numberOfAccounts}
-                  onChange={(e) => setNumberOfAccounts(Math.max(1, parseInt(e.target.value) || 1))}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-[#8fa670]/20 text-[#2a2d1f] font-bold focus:border-[#8fa670] focus:outline-none bg-white"
+                <div className="flex justify-between mb-4">
+                  <label className="text-[#2a2d1f] font-bold">Number of Accounts</label>
+                  <span className="text-[#8fa670] font-bold">{numberOfAccounts}</span>
+                </div>
+                <Slider
+                  value={[numberOfAccounts]}
+                  onValueChange={(val) => setNumberOfAccounts(val[0])}
+                  min={1}
+                  max={10}
+                  step={1}
+                  className="py-4"
                 />
               </div>
             </div>
