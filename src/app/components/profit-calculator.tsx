@@ -13,9 +13,12 @@ const accountSizes = [
 export function ProfitCalculator() {
   const [selectedSize, setSelectedSize] = useState(accountSizes[2]);
   const [profitTarget, setProfitTarget] = useState(10); // percentage
+  const [numberOfAccounts, setNumberOfAccounts] = useState(1);
 
   const potentialProfit = (selectedSize.size * profitTarget) / 100;
   const traderShare = potentialProfit * 0.8; // 80% profit split
+  const yearlyPayout = traderShare * numberOfAccounts * 12; // 12 months per year
+  const monthlyPayout = traderShare * numberOfAccounts;
 
   return (
     <section className="py-24 bg-white" id="calculator">
@@ -60,24 +63,44 @@ export function ProfitCalculator() {
                   className="py-4"
                 />
               </div>
+
+              <div>
+                <label className="block text-[#2a2d1f] font-bold mb-4">Number of Accounts</label>
+                <input
+                  type="number"
+                  min="1"
+                  value={numberOfAccounts}
+                  onChange={(e) => setNumberOfAccounts(Math.max(1, parseInt(e.target.value) || 1))}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-[#8fa670]/20 text-[#2a2d1f] font-bold focus:border-[#8fa670] focus:outline-none bg-white"
+                />
+              </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 border-2 border-[#8fa670]/10 shadow-inner space-y-6">
               <div className="flex justify-between items-center border-b border-[#f5f5ef] pb-4">
                 <span className="text-[#5a5d4a]">Challenge Fee</span>
-                <span className="text-[#2a2d1f] font-bold">${selectedSize.fee}</span>
+                <span className="text-[#2a2d1f] font-bold">${(selectedSize.fee * numberOfAccounts).toLocaleString()}</span>
               </div>
               <div className="flex justify-between items-center border-b border-[#f5f5ef] pb-4">
-                <span className="text-[#5a5d4a]">Total Profit</span>
+                <span className="text-[#5a5d4a]">Total Profit (Per Month)</span>
                 <span className="text-[#2a2d1f] font-bold">${potentialProfit.toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-[#f5f5ef] pb-4">
+                <div className="flex flex-col">
+                  <span className="text-[#2a2d1f] font-bold">Monthly Payout</span>
+                  <span className="text-[#8fa670] text-sm">80% Profit Split</span>
+                </div>
+                <span className="text-xl font-bold text-[#8fa670]">
+                  ${monthlyPayout.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+                </span>
               </div>
               <div className="flex justify-between items-center">
                 <div className="flex flex-col">
-                  <span className="text-[#2a2d1f] font-bold text-xl">Your Payout</span>
+                  <span className="text-[#2a2d1f] font-bold text-lg">Yearly Payout</span>
                   <span className="text-[#8fa670] text-sm">80% Profit Split</span>
                 </div>
-                <span className="text-4xl font-black text-[#8fa670]">
-                  ${traderShare.toLocaleString()}
+                <span className="text-3xl font-black text-[#8fa670]">
+                  ${yearlyPayout.toLocaleString(undefined, { maximumFractionDigits: 2 })}
                 </span>
               </div>
 
