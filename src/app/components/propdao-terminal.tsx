@@ -12,9 +12,10 @@ export function PropDAOTerminal() {
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#8fa670] to-[#a8bf88]"></div>
 
       <div className="flex items-center gap-4 mb-6">
-        <motion.div 
+        <motion.div
           className="w-12 h-12 flex-shrink-0 bg-black rounded-lg p-1 border border-[#8fa670]/20"
-          animate={{ 
+          initial={{ boxShadow: "0 0 0px rgba(143, 166, 112, 0)" }}
+          animate={{
             boxShadow: [
               "0 0 0px rgba(143, 166, 112, 0)",
               "0 0 20px rgba(143, 166, 112, 0.5)",

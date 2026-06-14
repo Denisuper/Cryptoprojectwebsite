@@ -30,10 +30,6 @@ export function FAQSection() {
       question: "Do I need to hold PROP tokens?",
       answer: "You don't need PROP tokens to trade, but holding them gives you governance rights to vote on protocol parameters, fee structures, and upgrades. Token holders also earn revenue share from platform trading fees."
     },
-    {
-      question: "Can I run multiple accounts?",
-      answer: "You can buy multiple accounts per wallet, but only one active account per wallet to keep things simple and prevent confusion. For multiple active challenges, simply use separate wallets."
-    }
   ];
 
   return (
