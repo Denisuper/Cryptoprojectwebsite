@@ -15,10 +15,11 @@ export function ProfitCalculator() {
   const [profitTarget, setProfitTarget] = useState(10); // percentage
   const [numberOfAccounts, setNumberOfAccounts] = useState(1);
 
-  const potentialProfit = (selectedSize.size * profitTarget) / 100;
-  const traderShare = potentialProfit * 0.8; // 80% profit split
-  const yearlyPayout = traderShare * numberOfAccounts * 12; // 12 months per year
+  const potentialProfitPerAccount = (selectedSize.size * profitTarget) / 100;
+  const totalMonthlyProfit = potentialProfitPerAccount * numberOfAccounts;
+  const traderShare = potentialProfitPerAccount * 0.8; // 80% profit split
   const monthlyPayout = traderShare * numberOfAccounts;
+  const yearlyPayout = monthlyPayout * 12;
 
   return (
     <section className="py-24 bg-white" id="calculator">
@@ -87,7 +88,7 @@ export function ProfitCalculator() {
               </div>
               <div className="flex justify-between items-center border-b border-[#f5f5ef] pb-4">
                 <span className="text-[#5a5d4a]">Total Profit (Per Month)</span>
-                <span className="text-[#2a2d1f] font-bold">${potentialProfit.toLocaleString()}</span>
+                <span className="text-[#2a2d1f] font-bold">${totalMonthlyProfit.toLocaleString()}</span>
               </div>
               <div className="flex justify-between items-center border-b border-[#f5f5ef] pb-4">
                 <div className="flex flex-col">

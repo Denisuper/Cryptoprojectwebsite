@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { PageTransition } from "../components/page-transition";
 import { marketAssets } from "../data/markets";
+import { CryptoIcon } from "../components/crypto-icon";
 
 export function PairsPage() {
   const [activeTab, setActiveTab] = useState<"All" | "Crypto" | "Alt" | "Meme" | "Indice" | "Commodity">("All");
@@ -84,9 +85,7 @@ export function PairsPage() {
                   >
                     <div className="grid grid-cols-6 gap-4 items-center">
                       <div className="col-span-2 flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#8fa670]/10 rounded-full flex items-center justify-center font-bold text-[#8fa670]">
-                          {asset.symbol[0]}
-                        </div>
+                        <CryptoIcon symbol={asset.symbol} size={40} />
                         <div>
                           <div className="text-[#2a2d1f] font-bold">{asset.symbol}</div>
                           <div className="text-[#5a5d4a] text-xs uppercase tracking-tighter">{asset.name}</div>

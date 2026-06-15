@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { marketAssets } from "../data/markets";
+import { CryptoIcon } from "./crypto-icon";
 
 export function TickerTape() {
   // Double the data for seamless loop using percentage translation
@@ -22,6 +23,7 @@ export function TickerTape() {
         >
           {row1.map((asset, i) => (
             <div key={`row1-${i}`} className="flex items-center gap-2">
+              <CryptoIcon symbol={asset.symbol} size={18} />
               <span className="font-bold text-[#2a2d1f]">{asset.symbol}</span>
               <span className="text-[#5a5d4a]">${asset.price.toLocaleString()}</span>
               <span className={`text-xs ${asset.change24h >= 0 ? "text-green-600" : "text-red-600"}`}>
@@ -45,6 +47,7 @@ export function TickerTape() {
         >
           {row2Extended.map((asset, i) => (
             <div key={`row2-${i}`} className="flex items-center gap-2">
+              <CryptoIcon symbol={asset.symbol} size={18} />
               <span className="font-bold text-[#2a2d1f]">{asset.symbol}</span>
               <span className="text-[#5a5d4a]">${asset.price.toLocaleString()}</span>
               <span className={`text-xs ${asset.change24h >= 0 ? "text-green-600" : "text-red-600"}`}>
